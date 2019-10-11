@@ -13,20 +13,24 @@ anly
   .then(() =>
     anly.register([
       {
-        container: "body",
-        element: "#btn",
-        type: "click",
-        category: "Homepage-Button",
-        action: "Click",
+        context: window.location.pathname === "/", // This is the scope
+        container: "body", // The DOM container of the element to listen
+        element: "#btn", // The DOM element to listen
+        type: "click", // Type of listener
+        category: "Homepage-Button", // Event Category
+        action: "Click", // Event Action
+        // Event Label. Can be either fix or calculated
         getLabel: () => {
           return "You clicked this button";
         },
+        // Event Value. Can be either fix or calculated
         getValue: () => {
           counter++;
           return counter;
         }
       },
       {
+        context: window.location.pathname === "/",
         container: "body",
         element: "#over",
         type: "mouseover",
@@ -52,6 +56,12 @@ anly
           counter++;
           return counter;
         }
+      },
+      {
+        type: "ec_print",
+        container: "",
+        element: "",
+        getProduct: () => {}
       }
     ])
   )

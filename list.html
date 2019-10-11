@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>List - Anly vNext</title>
+    <meta charset="UTF-8" />
+    <style>
+      #list .product {
+        box-shadow: 0.5px 1px 0.5px 1px #333333;
+        width: 200px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        margin: 1% 2.5%;
+        cursor: pointer;
+      }
+
+      #list .product img {
+        height: 250px;
+      }
+
+      #list .product p {
+        text-align: center;
+      }
+
+      #list {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        width: 90%;
+        height: auto;
+        margin: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="list"></div>
+    </div>
+    <script>
+      const createProductCartridge = () => {
+        const article = document.createElement("article");
+        article.classList.add("product");
+        const img = document.createElement("img");
+        img.src = "https://picsum.photos/200/300";
+        article.appendChild(img);
+        const p = document.createElement("p");
+        p.innerText = "My Product";
+        article.appendChild(p);
+        article.addEventListener("click", function() {
+          window.location = "/product.html?id=" + new Date().getTime();
+        });
+        return article;
+      };
+
+      const list = document.querySelector("#list");
+
+      for (var i = 0; i < 10; i++) {
+        list.appendChild(createProductCartridge());
+      }
+    </script>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

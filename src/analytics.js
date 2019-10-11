@@ -32,7 +32,7 @@ class Analytics {
 
   registerClickEvents(events) {
     events
-      .filter(evt => evt.type === "click")
+      .filter(evt => evt.type === "click" && evt.context)
       .forEach(evt => {
         document
           .querySelector(`${evt.container} ${evt.element}`)
@@ -49,7 +49,7 @@ class Analytics {
 
   registerMouseoverEvents(events) {
     events
-      .filter(evt => evt.type === "mouseover")
+      .filter(evt => evt.type === "mouseover" && evt.context)
       .forEach(evt => {
         document
           .querySelector(`${evt.container} ${evt.element}`)
