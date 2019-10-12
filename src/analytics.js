@@ -23,6 +23,7 @@ class Analytics {
         .catch(error => reject(error));
     });
   }
+  
 
   register(events) {
     this.registerClickEvents(events);

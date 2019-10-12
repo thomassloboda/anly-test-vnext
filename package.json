@@ -4,18 +4,23 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "babel src --out-dir dist && parcel index.html --open",
-    "build": "babel src --out-dir dist && parcel build index.html"
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack -d --mode development --watch",
+    "build-prod": "webpack -p --mode production",
+    "start": "concurrently \"npm run build-dev\" \"http-server sample-site\""
   },
-  "dependencies": {
-    "@babel/cli": "7.6.4",
-    "@babel/core": "7.6.4",
-    "@babel/plugin-transform-runtime": "7.6.2",
-    "@babel/preset-env": "7.6.3"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^5.0.0",
+    "http-server": "^0.11.1",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
   },
   "keywords": []
 }
