@@ -7,7 +7,7 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --mode development --watch",
     "build-prod": "webpack -p --mode production",
-    "start": "concurrently \"npm run build-dev\" \"http-server sample-site\""
+    "start": "concurrently \"npm run build-dev\" \"http-server\""
   },
   "dependencies": {},
   "devDependencies": {

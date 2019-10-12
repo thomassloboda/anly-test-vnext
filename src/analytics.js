@@ -2,18 +2,22 @@ import GoogleAnalyticsFramework from "./google-analytics-framework";
 import CustomPropertyType from "./custom-property-type";
 
 class Analytics {
+  constructor(options) {
+    if (options.framework === "google-analytics") {
+      // Initialize Google Analytics library override
+      this.framework = new GoogleAnalyticsFramework(options);
+    }
+  }
   init(options) {
     return new Promise((resolve, reject) => {
-      // Initialize Google Analytics library override
-      this.GAFramework = new GoogleAnalyticsFramework(options);
-
       // Initialize Google Analytics Framework
-      this.GAFramework.init()
+      this.framework
+        .init()
         .then(() => {
-          this.GAFramework.setPagename("home");
-          this.GAFramework.sendPageview();
+          this.framework.setPagename("home");
+          this.framework.sendPageview();
           // Set some specific data like current environment
-          this.GAFramework.setCustomProperty(
+          this.framework.setCustomProperty(
             CustomPropertyType.dimension,
             1,
             "prod"
@@ -23,7 +27,6 @@ class Analytics {
         .catch(error => reject(error));
     });
   }
-  
 
   register(events) {
     this.registerClickEvents(events);
@@ -38,7 +41,7 @@ class Analytics {
         document
           .querySelector(`${evt.container} ${evt.element}`)
           .addEventListener("click", e => {
-            this.GAFramework.sendEvent(
+            this.framework.sendEvent(
               evt.category,
               evt.action,
               evt.label || evt.getLabel(),
@@ -55,7 +58,7 @@ class Analytics {
         document
           .querySelector(`${evt.container} ${evt.element}`)
           .addEventListener("mouseover", e => {
-            this.GAFramework.sendEvent(
+            this.framework.sendEvent(
               evt.category,
               evt.action,
               evt.label || evt.getLabel(),
@@ -70,7 +73,7 @@ class Analytics {
       .filter(evt => evt.type === "conditional")
       .forEach(evt => {
         if (evt.condition) {
-          this.GAFramework.sendEvent(
+          this.framework.sendEvent(
             evt.category,
             evt.action,
             evt.label || evt.getLabel(),
