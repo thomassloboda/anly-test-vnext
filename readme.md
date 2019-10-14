@@ -2,6 +2,17 @@
 
 > version 1.0.0
 
+## Build it
+
+```bash
+git clone git@github.com:thomassloboda/anly-test-vnext.git
+cd anly-test-vnext
+npm install
+npm run build
+```
+
+The output file will be: **./dist/analytics-framework.js**.
+
 ## Basic usage
 
 In the _index.js_ you can find a basic implementation.
