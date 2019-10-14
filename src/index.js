@@ -1,7 +1,10 @@
-import Analytics from "./analytics";
+import InternalAnalytics from "./analytics";
+import InternalCustomPropertyType from "./custom-property-type";
 
 if (window) {
-  window.Analytics = Analytics;
+  window.Analytics = InternalAnalytics;
+  window.CustomPropertyType = InternalCustomPropertyType;
 }
 
-export default Analytics;
+export const Analytics = InternalAnalytics;
+export const CustomPropertyType = InternalCustomPropertyType;

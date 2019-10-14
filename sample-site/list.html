@@ -1,45 +1,48 @@
 <html>
-  <head>
-    <title>List - Anly vNext</title>
-    <meta charset="UTF-8" />
-    <style>
-      #list .product {
-        box-shadow: 0.5px 1px 0.5px 1px #333333;
-        width: 200px;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        margin: 1% 2.5%;
-        cursor: pointer;
-      }
 
-      #list .product img {
-        height: 250px;
-      }
+<head>
+  <title>List - Anly vNext</title>
+  <meta charset="UTF-8" />
+  <style>
+    #list .product {
+      box-shadow: 0.5px 1px 0.5px 1px #333333;
+      width: 200px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      margin: 1% 2.5%;
+      cursor: pointer;
+    }
 
-      #list .product p {
-        text-align: center;
-      }
+    #list .product img {
+      height: 250px;
+    }
 
-      #list {
-        display: flex;
-        flex-direction: row;
-        flex-flow: wrap;
-        width: 90%;
-        height: auto;
-        margin: 5%;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Hello Analytics developer !</h1>
-    <a href="/index.html">Home</a>
-    <br /><br />
-    <div id="container">
-      <div id="list"></div>
-    </div>
-    <script src="./list.js"></script>
-    <script src="../dist/analytics-framework.js"></script>
-    <script src="app.js"></script>
-  </body>
+    #list .product p {
+      text-align: center;
+    }
+
+    #list {
+      display: flex;
+      flex-direction: row;
+      flex-flow: wrap;
+      width: 90%;
+      height: auto;
+      margin: 5%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hello Analytics developer !</h1>
+  <a href="index.html">Home</a>
+  <br /><br />
+  <div id="container">
+    <div id="list"></div>
+  </div>
+  <script src="./list.js"></script>
+  <script src="../dist/analytics-framework.js"></script>
+  <script src="app.js"></script>
+</body>
+
 </html>

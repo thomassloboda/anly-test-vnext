@@ -10,7 +10,7 @@ To initialize the Framework you've to create an instance of **Analytics** passin
 ```javascript
 var analytics = Analytics({
   framework: "google-analytics",
-  storagePrefix: "myAnalytics"
+  storagePrefix: "myAnalytics",
 });
 ```
 
@@ -27,6 +27,25 @@ analytics
   });
 ```
 
+When your client is initialized you could set current page name using **setPagename()**.
+
+```javascript
+analytics.setPagename("home");
+```
+
+You can add custom properties to give more context to your data using **setCustomProperty()** using **CustomPropertyType** enum.
+
+```javascript
+// Set the environment
+analytics.setCustomProperty(CustomPropertyType.dimension, 1, "prod");
+```
+
+You should send the current viewed page using **sendPageView()**.
+
+```javascript
+analytics.sendPageView();
+```
+
 Final step is event registering calling **register()** method passing an Object's Array.
 
 ```javascript
@@ -35,7 +54,7 @@ analytics.register([]);
 
 ### Events you can register
 
-> *container* and *context* can be optionnal parameters.
+> _container_ and _context_ can be optionnal parameters.
 
 #### Click event
 

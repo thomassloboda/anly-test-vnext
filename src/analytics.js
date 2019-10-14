@@ -8,24 +8,26 @@ class Analytics {
       this.framework = new GoogleAnalyticsFramework(options);
     }
   }
-  init(options) {
+  init() {
     return new Promise((resolve, reject) => {
       // Initialize Google Analytics Framework
       this.framework
         .init()
-        .then(() => {
-          this.framework.setPagename("home");
-          this.framework.sendPageview();
-          // Set some specific data like current environment
-          this.framework.setCustomProperty(
-            CustomPropertyType.dimension,
-            1,
-            "prod"
-          );
-          resolve();
-        })
-        .catch(error => reject(error));
+        .then(resolve)
+        .catch(reject);
     });
+  }
+
+  setPagename(name) {
+    this.framework.setPagename(name);
+  }
+
+  sendPageview() {
+    this.framework.sendPageview();
+  }
+
+  setCustomProperty(type, index, value) {
+    this.framework.setCustomProperty(type, index, value);
   }
 
   register(events) {

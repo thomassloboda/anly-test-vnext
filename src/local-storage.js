@@ -19,14 +19,16 @@ class LocalStorage {
       let stored = localStorage.getItem(`${this.prefix}.clientID`);
       if (stored) {
         stored = JSON.parse(stored);
+        this.logger.info(`Retrieveing ${this.prefix}.clientID`);
         if (stored.expires > now) {
           return stored.value;
         }
       }
       stored = {
         value: `${this.prefix}.${CustomIdentifier.generate()}`,
-        expires: 13 * 2.628e9
+        expires: new Date().getTime() + 13 * 2.628e9,
       };
+      this.logger.info(`Creating ${this.prefix}.clientID`);
       localStorage.setItem(`${this.prefix}.clientID`, JSON.stringify(stored));
       return stored.value;
     }
