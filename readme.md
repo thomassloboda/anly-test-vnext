@@ -8,7 +8,7 @@
 git clone git@github.com:thomassloboda/anly-test-vnext.git
 cd anly-test-vnext
 npm install
-npm run build
+npm run build-prod
 ```
 
 The output file will be: **./dist/analytics-framework.js**.

@@ -16,7 +16,7 @@ class GoogleAnalyticsFramework extends AnalyticsFramewok {
           const ga = window.ga || function() {};
           this.logger.info("Script loaded");
           ga("create", this.options.accountID, this.options.domain, {
-            name: `${this.options.prefix}.`,
+            name: `${this.options.prefix}`,
             cookie_domain: this.options.cookieDomain,
             siteSpeedSampleRate: 1,
             allowAnchor: true,
